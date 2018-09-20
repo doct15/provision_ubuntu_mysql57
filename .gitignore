@@ -14,6 +14,7 @@ node_modules/
 build/*
 .Python
 pip-selfcheck.json
+db-config.json
 
 syntax: regexp
 (.*/)?\#[^/]*\#$

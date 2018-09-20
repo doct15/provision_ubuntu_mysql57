@@ -65,6 +65,9 @@ public class AddressDB {
     }
 
     public Address add(Address addr) {
+        if ( null == addr ) {
+            throw new IllegalArgumentException("Expected non-null address");
+        }
         if ( null != addr.getId() ) {
             throw new IllegalArgumentException("Expected id field to be null");
         }

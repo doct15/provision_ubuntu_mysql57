@@ -110,5 +110,11 @@ public class AddressBookAPIModule extends AbstractModule {
             .method(WebMethod.GET)
             .linked()
             .to(NotFound.class);
+
+        webBinder.addRoute()
+            .path("/")
+            .method(WebMethod.GET)
+            .linked()
+            .to(NotFound.class);
     }
 }

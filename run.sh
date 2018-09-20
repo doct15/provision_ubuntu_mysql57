@@ -3,8 +3,6 @@
 PORT=${PORT:-8080}
 
 root="$(cd "$(dirname "$0")" && pwd)"
-mkdir -p $root/target/www
-cd "$root/target/www"
 
 if ! [ -r "$root/db-config.json" ]; then
     echo "Please specify a db-config.json. Something like this will do:" 1>&2
@@ -19,10 +17,8 @@ if ! [ -r "$root/db-config.json" ]; then
 fi
 
 exec java -cp "$root/target/classes:$(cat "$root/target/.classpath")" \
-     "-DmasterKeysFile=$root/master-keys.json" \
      "-Dlog4j.configuration=file://$root/log4j.properties" \
      run.Guice \
      -Mcom.puppet.pipelines.api.addr.AddressBookAPIModule \
-     -Mcom.puppet.pipelines.web.test.TestWebComponentsModule \
      -Mcom.distelli.persistence.impl.PersistenceModule="$root/db-config.json" \
      com.distelli.webserver.GuiceWebServer.run=$PORT

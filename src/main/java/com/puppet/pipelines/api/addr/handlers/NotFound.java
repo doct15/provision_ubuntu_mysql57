@@ -34,8 +34,7 @@ public class NotFound implements WebHandler {
 
     @Override
     public WebResponse service(WebRequest req) throws Exception {
-        String msg = "No route matched "+req.getMethod()+" "+
-            req.getUrl().toRawUrl(UTF_8).getRawPath()+" available routes:\n"+
+        String msg = "No route matched, available routes:\n"+
             _routesSupplier.get().stream().collect(Collectors.joining("\n"));
         return req.responseFactory().create(
             req.jsResponseFactory().error(

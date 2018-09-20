@@ -31,8 +31,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <pipelines-webserver.version>1.22</pipelines-webserver.version>
-    <pipelines-webcomponents.version>2.6-SNAPSHOT</pipelines-webcomponents.version>
+    <pipelines-webserver.version>1.23</pipelines-webserver.version>
+    <pipelines-webcomponents.version>2.6</pipelines-webcomponents.version>
     <distelli-common.version>9.18.0</distelli-common.version>
     <guice.version>4.1.0</guice.version>
     <jackson.version>2.8.6</jackson.version>

@@ -4,7 +4,6 @@ SHELL := /bin/bash
 
 all:
 	mvn -q dependency:build-classpath compile -DincludeScope=runtime -Dmdep.outputFile=target/.classpath -Dmaven.compiler.debug=false
-	echo "To continuously build the javascript, run (yarn install && yarn watch)"
 
 install:
 	mvn -q install
