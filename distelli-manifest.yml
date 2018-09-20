@@ -22,6 +22,7 @@ bmcgehee/AddressBookAPI:
       -Mcom.distelli.persistence.impl.PersistenceModule="$DB_CONFIG"
       com.distelli.webserver.GuiceWebServer.run="$PORT"
   Build:
+    - jdk_switcher use oraclejdk8
     - mvn -q --settings settings.xml package dependency:copy-dependencies
   PkgInclude:
     - ["./target/*.jar", "lib/"]
