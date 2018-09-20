@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+TEMPLATES='
+db-config.json
+'
+
+x_rand_char() {
+    num=$(($RANDOM % 62))
+    if [[ $num -lt 10 ]]; then
+        num=$(($num + 48))
+    elif [[ $num -lt 36 ]]; then
+        num=$(($num + 65 - 10))
+    else
+        num=$(($num + 97 - 36))
+    fi
+    printf "\x$(printf %x $num)"
+}
+
+render_template() {
+    # Come up with unique delimiter:
+    delim=$(x_rand_char)$(x_rand_char)$(x_rand_char)$(x_rand_char)$(x_rand_char)
+    while cat "${1}" | grep -c -F -x $delim > /dev/null; do
+        delim="$delim$(x_rand_char)"
+    done
+    (cd "$(dirname "${1}")" &&
+         eval "$(printf "cat <<%s\n%s\n%s\n" "$delim" "$(cat "${1##*/}")" "$delim")")
+}
+
+for template in $TEMPLATES; do
+    if [ -n "$template" ] && ! [ -r "$template" ]; then
+        render_template "$template.tmpl" > "$template"
+    fi
+done

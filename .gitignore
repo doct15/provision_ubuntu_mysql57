@@ -1,0 +1,24 @@
+syntax: glob
+*~
+*.class
+target/*
+www/
+*.log
+*.log.gz
+.devbuild
+prj.el
+.idea/
+.DS_Store
+tmp/
+node_modules/
+build/*
+.Python
+pip-selfcheck.json
+db-config.json
+
+syntax: regexp
+(.*/)?\#[^/]*\#$
+pom.xml.versionsBackup
+nbactions.xml
+.eslintrc
+(?i)\.iml

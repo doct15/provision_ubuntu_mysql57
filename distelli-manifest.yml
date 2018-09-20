@@ -1,7 +1,0 @@
-bmcgehee/provision_ubuntu_mysql57:
-  Build:
-    - echo "Nothing to build"
-  PostInstall:
-    - sudo apt-get -y update
-    - sudo apt-get -y install mysql-server-5.7
-    
