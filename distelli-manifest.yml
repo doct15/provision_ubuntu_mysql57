@@ -1,6 +1,6 @@
 distelli/AddressBookAPI:
   Env:
-    - PORT: "8080"
+    - PORT: "9000"
     - DB_ENDPOINT: "mysql://distelli-alpha.cedf018eguc7.us-east-1.rds.amazonaws.com:3306/addr_beta?maximumPoolSize=2"
     - DB_USER: "distelli"
     - DB_PASSWORD: "<specify-in-env>"
